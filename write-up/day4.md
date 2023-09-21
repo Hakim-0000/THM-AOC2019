@@ -3,56 +3,59 @@ konek ke mesin menggunakan ssh
 ssh mcsysadmin@[your-machines-ip]
 ```
 
-Q1:How many visible files are there in the home directory(excluding ./ and ../)?
-Q2:What is the content of file5?
-Q3:Which file contains the string ‘password’?
-Q4:What is the IP address in a file in the home folder?
-Q5:How many users can log into the machine?
-Q6:What is the sha1 hash of file8?
-Q7:What is mcsysadmin’s password hash?
+<br>Q1:How many visible files are there in the home directory(excluding ./ and ../)?
+<br>Q2:What is the content of file5?
+<br>Q3:Which file contains the string ‘password’?
+<br>Q4:What is the IP address in a file in the home folder?
+<br>Q5:How many users can log into the machine?
+<br>Q6:What is the sha1 hash of file8?
+<br>Q7:What is mcsysadmin’s password hash?
 
-A1:
-lakukan command ```ls```
+<br>A1:
+<br>lakukan command ```ls```
 
-A2:
-lakukan ```cat file5```
-
-A3:
-kita dapat melakukan command berikut untuk mendapatkan kata tersebut pada seluruh direktori
-sekarang berada dengan cara
+<br>A2:
+<br>lakukan
+```shell
+cat file5
 ```
+
+<br>A3:
+<br>kita dapat melakukan command berikut untuk mendapatkan kata tersebut pada seluruh direktori
+sekarang berada dengan cara
+```shell
 grep -rn "password"
 ```
 
-A4: 
-kita gunakan command yang hampir sama, namun untuk keyword yang dimasukkan diubah
-```
+<br>A4: 
+<br>kita gunakan command yang hampir sama, namun untuk keyword yang dimasukkan diubah
+```shell
 grep -rn "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"
 ```
 
-A5:
-untuk mengecek siapa saja user yang ada di mesin ini, kita dapat melkukan command
-```
+<br>A5:
+<br>untuk mengecek siapa saja user yang ada di mesin ini, kita dapat melkukan command
+```shell
 cat /etc/passwd | grep /bin/bash
 ```
 hal ini karena seorang user pasti dapat mengakses bash
 
-A6:
-untuk dapat mengetahui sha1 dari file8, kita dapat melakukan command
-```
+<br>A6:
+<br>untuk dapat mengetahui sha1 dari file8, kita dapat melakukan command
+```shell
 sha1sum file8
 ```
 
-A7:
-untuk dapat mengetahui hashed password dari user mcsysadmin, kita dapat melihatnya di
+<br>A7:
+<br>untuk dapat mengetahui hashed password dari user mcsysadmin, kita dapat melihatnya di
 `/etc/shadow`, namun file tersebut hanya dapat diakses oleh root. jadi kita perlu mencari
 file backup dari `shadow`, yang mana memiliki format `.bak`. kita dapat mencarinya dengan
 command
-```
+```shell
 find / -name "*shadow*" -exec ls -lt {} \; 2>/dev/null | head
 ```
 dan hasilnya nanti akan seperti berikut
-```
+```shell
 ---------- 1 root root 545 Dec  4  2019 /etc/gshadow
 ---------- 1 root root 783 Sep 19 05:39 /etc/shadow
 ---------- 1 root root 783 Sep 19 05:39 /etc/shadow-

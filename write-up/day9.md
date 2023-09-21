@@ -4,11 +4,11 @@ hasilnya nanti adalah
 ```
 {"value":"s", "next":"f"}
 ```
-Q1:What is the value of the flag?
+<br>Q1:What is the value of the flag?
 
 
-A1:
-hasil dari itu adalah JSON objek. kita perlu pergi ke `next` yang berarti next page, 
+<br>A1:
+<br>hasil dari itu adalah JSON objek. kita perlu pergi ke `next` yang berarti next page, 
 yang mana ada di `http://10.10.169.100:300/f`. kita perlu menyimpan hasil dari tiap 
 `value` pada tiap page hingga mencapai `end` pada value dari `value` dan `next`. untuk 
 melakukan request ke tiap page yang akan dikunjungi, daripada kita harus menuliskannya 
@@ -16,7 +16,7 @@ satu per satu, kita dapat mengotomatisasi hal tersebut dengan python scripting.
 sebelumnya, kita buat file python dengan format `.py`, disini saya menggunakan editor 
 `nano`, jadi langsung saja buat file `nano loop_req.py`. jika sudah membuatnya, 
 tuliskan script python berikut
-```
+```python
 import requests as req
 import json
 
