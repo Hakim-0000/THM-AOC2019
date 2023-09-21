@@ -40,7 +40,7 @@ cat /home/igor/flag1.txt
 ```
 
 <br>A3:
-untuk dapat berpindah privilege yang lebih tinggi, yaitu menjadi `root`, kita perlu mencari
+<br>untuk dapat berpindah privilege yang lebih tinggi, yaitu menjadi `root`, kita perlu mencari
 file SUID yang lain. dan yang bisa kita gunakan adalah file `/usr/bin/system-control`.
 ketika kita langsung memasukkan itu dalam command, nantinya kita dapat input command dan
 dijalankan sebagai root. jadi kita bisa melihat isi dari flag yang kedua
